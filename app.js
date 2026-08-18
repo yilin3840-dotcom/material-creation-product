@@ -1,4 +1,3 @@
-// 首期交互为科普演示：所有状态反馈均不执行真实材料计算。
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 const goalButtons = document.querySelectorAll('[data-goal]');
