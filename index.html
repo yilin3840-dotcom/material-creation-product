@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="材料智能创制：从现实需求出发，生成候选、解释取舍并规划验证" />
+    <title>材料智能创制</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="final.css?v=material-layout-2" />
+  </head>
+  <body>
+    <div class="page-noise" aria-hidden="true"></div>
+    <header class="site-header shell">
+      <a class="brand" href="#home" aria-label="材料创制首页" data-view-link="home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>材料创制</span>
+      </a>
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#home" data-view-link="home">智能创制</a>
+        <a href="#material" data-view-link="material">认识材料</a>
+        <a href="#process" data-view-link="process">创制流程</a>
+        <a href="#ai" data-view-link="ai">智能研究</a>
+        <a href="#case" data-view-link="case">真实案例</a>
+      </nav>
+      <div class="header-actions">
+        <button class="mode-toggle" id="mode-toggle" type="button" aria-pressed="false"><span>小白</span><i></i><span>专家</span></button>
+        <span class="mode-status" id="mode-status" aria-live="polite">小白模式 先看结论</span>
+        <span class="header-progress" id="header-progress" aria-live="polite">任务 01 / 05</span>
+        <a class="nav-note" href="#sources" data-view-link="sources">证据索引 <span>↗</span></a>
+      </div>
+    </header>
+
+    <main id="top" class="app-main" data-beginner-surface="science-exhibition">
+      <div class="app-view is-active" id="view-home" data-view="home" aria-hidden="false">
+      <section class="hero shell final-hero">
+        <div class="hero-copy final-hero__copy">
+          <p class="eyebrow">MATERIAL INTELLIGENCE AGENT</p>
+          <span class="hero-kicker">面向材料研发的智能决策平台</span>
+          <h1>从一个需求<br /><em>找到材料研发路径</em></h1>
+          <p class="hero-description">输入想解决的问题，智能研究伙伴会澄清目标、缩小候选空间、解释推荐原因，并规划下一步验证</p>
+          <div class="hero-actions">
+            <button class="primary-link" type="button" data-open-task>开始一个创制任务 <span>→</span></button>
+            <button class="secondary-link" type="button" data-open-view="material">先看懂材料创制 <span>↗</span></button>
+          </div>
+          <div class="hero-capabilities" aria-label="平台核心能力">
+            <span>需求澄清</span><span>候选生成</span><span>性能预测</span><span>实验建议</span>
+          </div>
+          <div class="hero-promise">
+            <span>你将得到</span>
+            <strong>可比较的候选方案</strong>
+            <strong>看得懂的推荐依据</strong>
+            <strong>可以执行的下一步验证</strong>
+          </div>
+        </div>
+        <div class="funnel-card" aria-label="材料候选漏斗">
+          <div class="funnel-card__head">
+            <div><span class="micro-tag">CANDIDATE FUNNEL</span><h2>材料候选如何逐步收敛</h2></div>
+            <span class="funnel-status"><i></i> 演示就绪</span>
+          </div>
+          <div class="goal-selector final-goal-selector" aria-label="选择研发目标">
+            <span>选择目标</span>
+            <div class="goal-buttons" role="group" aria-label="材料性能目标">
+              <button class="is-selected" type="button" data-goal="高效" data-note="优先关注反应活性与稳定性的平衡" data-specimen="高效催化材料">高效</button>
+              <button type="button" data-goal="轻盈" data-note="优先降低密度并保持承载能力" data-specimen="轻量结构材料">轻盈</button>
+              <button type="button" data-goal="强韧" data-note="优先平衡强度、韧性与可制造性" data-specimen="高强韧合金">强韧</button>
+              <button type="button" data-goal="耐热" data-note="优先评估高温稳定性与工艺窗口" data-specimen="耐热结构材料">耐热</button>
+            </div>
+          </div>
+          <div class="funnel-workspace">
+            <div class="candidate-funnel" id="home-candidate-funnel" role="group" aria-label="候选筛选阶段">
+              <button type="button" class="funnel-layer is-active" data-final-funnel="space" style="--layer-width:100%"><span>01</span><strong>材料候选空间</strong><small>&gt;10⁹ 种组成与结构可能</small><b class="funnel-dots" aria-hidden="true"></b></button>
+              <button type="button" class="funnel-layer" data-final-funnel="constraints" style="--layer-width:82%"><span>02</span><strong>需求与约束</strong><small>性能 成本 周期 可制造性</small><b class="funnel-dots" aria-hidden="true"></b></button>
+              <button type="button" class="funnel-layer" data-final-funnel="model" style="--layer-width:64%"><span>03</span><strong>知识与模型筛选</strong><small>材料知识 结构预测 性能排序</small><b class="funnel-dots" aria-hidden="true"></b></button>
+              <button type="button" class="funnel-layer" data-final-funnel="experiment" style="--layer-width:46%"><span>04</span><strong>主动实验筛选</strong><small>计算 合成 测试 反馈</small><b class="funnel-dots" aria-hidden="true"></b></button>
+              <button type="button" class="funnel-layer" data-final-funnel="final" style="--layer-width:28%"><span>05</span><strong>优先候选</strong><small>3–5 个可验证方案</small></button>
+            </div>
+            <aside class="funnel-inspector specimen-stage" aria-live="polite">
+              <span class="micro-tag">当前判断</span>
+              <strong id="goal-specimen">高效催化材料</strong>
+              <p id="goal-note">优先关注反应活性与稳定性的平衡</p>
+              <div class="funnel-inspector__metric"><span id="funnel-inspector-label">当前范围</span><strong id="funnel-inspector-value">十亿级候选</strong></div>
+              <p id="funnel-inspector-copy">先铺开组成和结构的可能性，再根据目标逐层缩小范围</p>
+              <div class="funnel-legend"><span><i></i> 保留</span><span><i></i> 待判断</span><span><i></i> 已排除</span></div>
+            </aside>
+          </div>
+        </div>
+        <div class="home-facts" aria-label="资料中的材料创制关键事实">
+          <article><span>&gt;10⁹</span><strong>候选空间</strong><small>组成与结构的可能性巨大</small></article>
+          <article><span>10–15 年</span><strong>传统研发周期</strong><small>资料所述的新材料平均周期</small></article>
+          <article><span>≈7 天</span><strong>智能研发案例</strong><small>数据提取、自主建模与主动实验</small></article>
+        </div>
+        <nav class="home-route" aria-label="产品功能入口">
+          <button type="button" data-open-view="material"><span>01</span><strong>认识材料</strong><small>从成分看到应用</small></button>
+          <button type="button" data-open-view="process"><span>02</span><strong>反向设计</strong><small>从目标生成候选</small></button>
+          <button type="button" data-open-view="ai"><span>03</span><strong>AI 研究伙伴</strong><small>检索、预测与优化</small></button>
+          <button type="button" data-open-view="case"><span>04</span><strong>真实案例</strong><small>高熵合金催化剂</small></button>
+        </nav>
+      </section>
+      <section class="learning-context shell" data-learning-context="home" aria-label="当前学习上下文">
+        <div class="learning-context__state"><span class="micro-tag">LEARNING CONTEXT</span><strong data-context-stage>从需求出发</strong></div>
+        <div class="learning-context__copy"><span>你已经理解</span><p data-context-understood>材料研发，是把一个现实需求翻译成材料能力。</p></div>
+        <div class="learning-context__next"><span>推荐下一步</span><p data-context-next-copy>先认识材料的组成、结构与用途。</p><button type="button" data-context-next data-open-view="material">开始学习 <span>→</span></button></div>
+      </section>
+      </div>
+
+      <div class="app-view" id="view-material" data-view="material" aria-hidden="true">
+      <section class="intro-band shell" id="material">
+        <p class="eyebrow">MATERIAL BASICS / 02</p>
+        <div class="intro-grid">
+          <h2>材料不是静止的物。<br /><em>它是一连串选择的结果。</em></h2>
+          <p>元素如何组合、怎样加工、内部如何排列，会共同决定它能否导电、耐热、承重，或帮助我们更高效地制取氢能。</p>
+        </div>
+        <div class="materials-grid">
+          <article class="material-card card-metal is-active" role="button" tabindex="0" data-material="metal" aria-pressed="true">
+            <span class="card-num">01</span><span class="card-type">金属</span>
+            <div class="sample sample-metal"><i></i><i></i><i></i></div>
+            <p>强度、延展与导电</p>
+          </article>
+          <article class="material-card card-ceramic" role="button" tabindex="0" data-material="ceramic" aria-pressed="false">
+            <span class="card-num">02</span><span class="card-type">陶瓷</span>
+            <div class="sample sample-ceramic"></div>
+            <p>耐热、耐磨与绝缘</p>
+          </article>
+          <article class="material-card card-polymer" role="button" tabindex="0" data-material="polymer" aria-pressed="false">
+            <span class="card-num">03</span><span class="card-type">高分子</span>
+            <div class="sample sample-polymer"><i></i><i></i><i></i></div>
+            <p>轻盈、柔韧与成型</p>
+          </article>
+          <article class="material-card card-composite" role="button" tabindex="0" data-material="composite" aria-pressed="false">
+            <span class="card-num">04</span><span class="card-type">复合材料</span>
+            <div class="sample sample-composite"></div>
+            <p>组合不同材料的优点</p>
+          </article>
+          <article class="material-card card-semiconductor" role="button" tabindex="0" data-material="semiconductor" aria-pressed="false">
+            <span class="card-num">05</span><span class="card-type">半导体</span>
+            <div class="sample sample-semiconductor"><i></i><i></i><i></i><i></i></div>
+            <p>让信息被处理与传递</p>
+          </article>
+        </div>
+        <div class="material-explainer">
+          <div class="explainer-object"><span></span><i></i><i></i><i></i><i></i></div>
+          <div class="explainer-copy">
+            <span class="micro-tag">READING A MATERIAL</span>
+            <h3>看材料，要同时看见<br />它的组成、形态与用途。</h3>
+            <p>同一种元素，因为内部结构或加工方式不同，也可能呈现完全不同的强度、导电性和耐热能力。这就是材料科学最核心的观察方式。</p>
+            <span class="material-selection" id="material-selection">正在观察：金属 / 强度、延展与导电</span>
+            <div class="term-tray" aria-label="先懂三个材料学术语">
+              <span>先懂三个词</span>
+              <button type="button" class="term-trigger" data-term="成分">成分</button>
+              <button type="button" class="term-trigger" data-term="结构">结构</button>
+              <button type="button" class="term-trigger" data-term="性能">性能</button>
+            </div>
+          </div>
+          <ul class="explainer-list">
+            <li><span>原子层</span><strong>由哪些元素构成</strong></li>
+            <li><span>结构层</span><strong>它们如何排列与连接</strong></li>
+            <li><span>应用层</span><strong>最终解决什么现实问题</strong></li>
+          </ul>
+        </div>
+        <div class="material-inspector" aria-label="材料观察器">
+          <div class="inspector-header"><span class="micro-tag">MATERIAL INSPECTOR</span><strong>选择一个层级，观察材料为何拥有不同能力。</strong></div>
+          <div class="inspector-tabs" role="tablist" aria-label="材料观察层级">
+            <button type="button" class="is-active" data-inspect="atom" role="tab" aria-selected="true">原子组成</button>
+            <button type="button" data-inspect="structure" role="tab" aria-selected="false">微观结构</button>
+            <button type="button" data-inspect="process" role="tab" aria-selected="false">制备工艺</button>
+            <button type="button" data-inspect="application" role="tab" aria-selected="false">应用结果</button>
+          </div>
+          <div class="inspector-output" aria-live="polite"><span class="output-index">01</span><div><h4 id="inspect-title">先选择合适的元素</h4><p id="inspect-text">材料的成分像一份“配方”。元素不同，材料能做到的事情也不同。</p></div><span class="output-symbol" id="inspect-symbol">Fe</span></div>
+        </div>
+        <div class="learning-chain" aria-label="小白学习链路">
+          <div class="learning-chain__head"><span class="micro-tag">BEGINNER PATH</span><strong>先记住这条链：成分 → 制备 → 结构 → 性能 → 应用</strong></div>
+          <div class="learning-chain__steps" role="tablist" aria-label="材料因果链">
+            <button class="is-active" type="button" data-chain-step="composition" role="tab" aria-selected="true"><span>01</span><strong>成分</strong><small>选哪些元素</small></button>
+            <button type="button" data-chain-step="process" role="tab" aria-selected="false"><span>02</span><strong>制备</strong><small>怎样加工</small></button>
+            <button type="button" data-chain-step="structure" role="tab" aria-selected="false"><span>03</span><strong>结构</strong><small>如何排列</small></button>
+            <button type="button" data-chain-step="performance" role="tab" aria-selected="false"><span>04</span><strong>性能</strong><small>能做到什么</small></button>
+            <button type="button" data-chain-step="application" role="tab" aria-selected="false"><span>05</span><strong>应用</strong><small>解决什么问题</small></button>
+          </div>
+          <div class="learning-chain__footer">
+            <p class="learning-chain__hint" id="learning-chain-hint" aria-live="polite">先看成分：它决定材料最初的“配方”。</p>
+            <button class="learning-chain__next" id="learning-next" type="button">下一步 <span>→</span></button>
+          </div>
+        </div>
+        <section class="knowledge-layer" aria-label="同一知识点的两种解释">
+          <div class="beginner-lesson"><span class="micro-tag">BEGINNER EXPLANATION</span><h3>一句话先记住：材料是在完成任务的能力。</h3><p>像挑选工具一样，我们不是先问“它是什么”，而是先问“我希望它完成什么”。成分、制备和结构，决定它最后能不能胜任。</p><strong>你应该记住：成分 → 制备 → 结构 → 性能 → 应用。</strong></div>
+          <div class="expert-lesson" aria-label="专家模式分层信息"><div class="expert-lesson__head"><span class="micro-tag">EXPERT LAYERS</span><strong>逐层展开，而不是一次堆满术语</strong></div><div class="expert-layer-grid"><details open><summary>Definition <span>基础概念</span></summary><p>材料是由成分、结构与加工历史共同定义的物质系统。</p></details><details><summary>Mechanism <span>作用机制</span></summary><p>局部化学环境与微观排列改变，宏观响应也会随之改变。</p></details><details><summary>Parameters <span>关键参数</span></summary><p>元素比例、晶格类型、缺陷、温度与加工路径是主要变量。</p></details><details><summary>Model <span>模型层</span></summary><p>本阶段只展示概念关系，不把示意图当作定量预测。</p></details><details><summary>Evidence <span>证据</span></summary><p>可从原始资料、实验表征与模型输出分别追溯。</p></details><details><summary>Limitations <span>边界</span></summary><p>概念可视化不能替代真实计算、制备或实验验证。</p></details><details><summary>Source <span>原始资料</span></summary><p>内容依据《材料创制资料(1).pdf》整理，后续可跳转原文。</p></details></div></div>
+        </section>
+      </section>
+
+      <section class="cause-section shell">
+        <div class="section-heading">
+          <p class="eyebrow">THE MATERIAL LOGIC / 03</p>
+          <h2>从组成到世界，<br />材料有一条清晰的因果链。</h2>
+        </div>
+        <ol class="logic-line">
+          <li><span>01</span><strong>成分</strong><small>选择哪些元素</small></li>
+          <li><span>02</span><strong>制备</strong><small>如何加工与塑形</small></li>
+          <li><span>03</span><strong>结构</strong><small>内部如何排列</small></li>
+          <li><span>04</span><strong>性能</strong><small>能承受什么、做到什么</small></li>
+          <li><span>05</span><strong>应用</strong><small>最终改变什么</small></li>
+        </ol>
+      </section>
+      <section class="science-lab shell" aria-labelledby="science-lab-title">
+        <div class="section-heading science-lab__heading"><div><p class="eyebrow">SCIENCE VISUALIZATION / 03</p><h2 id="science-lab-title">把“材料为什么这样”<br />变成可以观察的因果链。</h2></div><p>下面三段互动都标注为“概念示意”，用于理解关系，不代表精确计算结果。</p></div>
+        <article class="science-chapter journey-chapter"><div class="science-chapter__copy"><span class="micro-tag">01 / COMPOSITION TO APPLICATION</span><h3>从原子，到一件真正有用的产品。</h3><p>同一条链路解释材料科学如何从微观走向宏观：先看组成，再看排列，最后回到产品要完成的任务。</p><span class="conceptual-label">CONCEPTUAL VISUALIZATION · 概念示意</span></div><div class="journey-visual" id="journey-visual" data-active-stage="atom"><div class="journey-object journey-object--atom"><i></i><i></i><i></i><b>原子</b></div><div class="journey-object journey-object--structure"><i></i><i></i><i></i><i></i><b>结构</b></div><div class="journey-object journey-object--material"><span></span><b>材料</b></div><div class="journey-object journey-object--product"><span>电池</span><b>产品</b></div><div class="journey-line" aria-hidden="true"></div></div><div class="journey-controls" role="tablist" aria-label="原子到产品步骤"><button class="is-active" type="button" data-science-step="atom" role="tab" aria-selected="true"><span>01</span><strong>组成</strong><small>选择哪些元素</small></button><button type="button" data-science-step="structure" role="tab" aria-selected="false"><span>02</span><strong>结构</strong><small>原子如何排列</small></button><button type="button" data-science-step="material" role="tab" aria-selected="false"><span>03</span><strong>性能</strong><small>材料能做到什么</small></button><button type="button" data-science-step="product" role="tab" aria-selected="false"><span>04</span><strong>应用</strong><small>解决什么问题</small></button></div><p class="journey-caption" id="journey-caption" aria-live="polite">组成：先选择合适的元素，就像先准备一份配方。</p></article>
+        <article class="science-chapter composition-chapter"><div class="science-chapter__copy"><span class="micro-tag">02 / COMPOSITION TO PERFORMANCE</span><h3>换一个元素，可能改变整套材料逻辑。</h3><p>选择元素后，中央结构只做概念变化；右侧同步显示“成分 → 结构 → 性能可能变化”的推理链。</p><span class="conceptual-label">CONCEPTUAL VISUALIZATION · 不含精确性能值</span></div><div class="composition-visual" id="composition-visual" data-element="Ni"><div class="composition-core"><span class="composition-symbol">Ni</span><i></i><i></i><i></i><i></i></div><div class="composition-readout"><span>当前观察</span><strong id="composition-name">Ni · 镍基骨架</strong><p id="composition-copy">作为概念示例，Ni 代表稳定的主体框架。</p></div></div><div class="element-controls" role="group" aria-label="选择概念元素"><button class="is-active" type="button" data-element-choice="Ni">Ni<small>镍</small></button><button type="button" data-element-choice="Fe">Fe<small>铁</small></button><button type="button" data-element-choice="Co">Co<small>钴</small></button><button type="button" data-element-choice="Mo">Mo<small>钼</small></button></div><div class="causal-chain" aria-live="polite"><div><span>成分变化</span><strong id="cause-composition">Ni 主体</strong></div><b>→</b><div><span>结构变化</span><strong id="cause-structure">局部排列示意</strong></div><b>→</b><div><span>性能可能变化</span><strong id="cause-performance">稳定性 / 活性</strong></div></div></article>
+      </section>
+      <section class="learning-context shell" data-learning-context="material" aria-label="材料页学习上下文"><div class="learning-context__state"><span class="micro-tag">LEARNING CONTEXT</span><strong data-context-stage>认识材料</strong></div><div class="learning-context__copy"><span>你已经理解</span><p data-context-understood>材料由成分、制备与结构共同决定性能。</p></div><div class="learning-context__next"><span>推荐下一步</span><p data-context-next-copy>看看科学家如何从目标性能反向设计材料。</p><button type="button" data-context-next data-open-view="process">进入创制流程 <span>→</span></button></div></section>
+      </div>
+
+      <div class="app-view" id="view-process" data-view="process" aria-hidden="true">
+      <section class="process-section shell" id="process">
+        <div class="process-copy">
+          <p class="eyebrow">INVERSE DESIGN / 04</p>
+          <h2>先提出问题，<br />再反推材料。</h2>
+          <p>材料创制不只依赖反复试错。研究者可以先定义目标性能，再逐步寻找更有可能的材料方案。</p>
+          <p class="quiet-label">以“设计更高效的析氢催化剂”为例</p>
+          <div class="process-badges" aria-label="材料创制难点"><span>&gt;10⁹ 级候选空间</span><span>制备工艺对时间与顺序敏感</span></div>
+          <div class="process-progress" aria-label="创制流程进度">
+            <div><span id="process-progress-label">01 / 05</span><small>点击步骤查看因果</small></div>
+            <i><b id="process-progress-fill"></b></i>
+          </div>
+        </div>
+        <div class="process-board" aria-label="材料创制五步流程">
+          <div class="process-track"></div>
+          <article class="is-active" tabindex="0" data-process="goal"><span>1</span><h3>设定目标</h3><p>更低的析氢过电位</p></article>
+          <article tabindex="0" data-process="candidate"><span>2</span><h3>生成候选</h3><p>提出元素组合与比例</p></article>
+          <article tabindex="0" data-process="screen"><span>3</span><h3>高通量筛选</h3><p>预测并排除低潜力方案</p></article>
+          <article tabindex="0" data-process="verify"><span>4</span><h3>制备验证</h3><p>在实验中验证性能</p></article>
+          <article tabindex="0" data-process="iterate"><span>5</span><h3>迭代优化</h3><p>用结果继续改进</p></article>
+        </div>
+        <aside class="process-detail" aria-live="polite"><span id="process-index">STEP 01</span><h3 id="process-title">把模糊的愿望变成可研究的目标。</h3><p id="process-text">例如“更高效”会被转成可比较的性能指标与实际约束条件。</p><div><small>输入</small><strong id="process-input">目标性能与应用场景</strong></div></aside>
+        <section class="process-visualization" aria-label="候选空间收缩概念示意"><div class="process-visualization__head"><div><span class="micro-tag">SCIENCE VISUALIZATION / 03</span><h3>候选空间如何一步步收缩？</h3></div><p>AI 的价值不是凭空给出答案，而是帮助研究人员更快探索巨大的候选空间。</p></div><div class="candidate-visual" id="candidate-visual" data-candidate-stage="many"><div class="candidate-cloud" id="candidate-cloud" aria-hidden="true"></div><div class="candidate-overlay"><span id="candidate-stage-label">大量候选</span><strong id="candidate-stage-count">1000+</strong><small id="candidate-stage-note">先把可能性铺开</small></div></div><div class="candidate-controls" role="tablist" aria-label="候选空间阶段"><button class="is-active" type="button" data-candidate-stage="many" role="tab" aria-selected="true"><span>01</span><strong>大量候选</strong><small>探索空间</small></button><button type="button" data-candidate-stage="screened" role="tab" aria-selected="false"><span>02</span><strong>初步筛选</strong><small>快速排队</small></button><button type="button" data-candidate-stage="few" role="tab" aria-selected="false"><span>03</span><strong>少量候选</strong><small>聚焦潜力</small></button><button type="button" data-candidate-stage="optimize" role="tab" aria-selected="false"><span>04</span><strong>优化</strong><small>迭代建议</small></button><button type="button" data-candidate-stage="verify" role="tab" aria-selected="false"><span>05</span><strong>验证</strong><small>实验确认</small></button></div></section>
+        <section class="knowledge-layer process-knowledge-layer" aria-label="创制流程的专家解释"><div class="beginner-lesson"><span class="micro-tag">BEGINNER EXPLANATION</span><h3>先说清楚想要什么，再开始找材料。</h3><p>这就像筛选旅行路线：先定目的地，再比较选项，最后亲自走一遍确认。</p><strong>你应该记住：目标 → 候选 → 预测 → 优化 → 验证。</strong></div><div class="expert-lesson"><div class="expert-lesson__head"><span class="micro-tag">EXPERT LAYERS</span><strong>从目标函数到实验闭环</strong></div><div class="expert-layer-grid"><details open><summary>Definition <span>目标定义</span></summary><p>把“更高效”等需求转译为可量化指标与边界条件。</p></details><details><summary>Mechanism <span>筛选机制</span></summary><p>候选生成、代理模型预测与实验反馈共同收缩搜索空间。</p></details><details><summary>Parameters <span>参数</span></summary><p>元素池、比例、工艺窗口与评价指标构成搜索变量。</p></details><details><summary>Model <span>模型</span></summary><p>模型输出是方向性建议，必须与制备和表征结果对照。</p></details><details><summary>Evidence <span>证据</span></summary><p>候选数、实验结果与原始资料中的流程节点分别记录。</p></details><details><summary>Limitations <span>边界</span></summary><p>候选空间与模型训练数据会限制推荐范围。</p></details><details><summary>Source <span>来源</span></summary><p>流程逻辑依据材料创制资料中的逆向设计与验证描述。</p></details></div></div></section>
+      </section>
+      <section class="learning-context shell" data-learning-context="process" aria-label="创制流程学习上下文"><div class="learning-context__state"><span class="micro-tag">LEARNING CONTEXT</span><strong data-context-stage>材料创制</strong></div><div class="learning-context__copy"><span>你已经理解</span><p data-context-understood>材料可以从目标性能出发，被逐步反向设计。</p></div><div class="learning-context__next"><span>推荐下一步</span><p data-context-next-copy>再看看 AI 如何参与检索、规划与预测。</p><button type="button" data-context-next data-open-view="ai">了解 AI 研究伙伴 <span>→</span></button></div></section>
+      </div>
+
+      <div class="app-view" id="view-ai" data-view="ai" aria-hidden="true">
+      <section class="ai-section shell" id="ai">
+        <div class="ai-panel">
+          <div class="ai-panel__heading">
+            <p class="eyebrow">AI AS A RESEARCH PARTNER / 05</p>
+            <h2 id="ai-mode-title">AI 会怎么帮忙？<br />先把问题拆小，再找答案。</h2>
+          </div>
+          <div class="ai-orbit" aria-hidden="true"><span>AI</span><i></i><i></i><i></i><b></b><b></b><b></b></div>
+          <ul class="ai-list">
+            <li><span>01</span><strong>RAG 检索</strong><small>从材料学术知识库找到线索</small></li>
+            <li><span>02</span><strong>任务规划</strong><small>形成工具调用链与执行策略</small></li>
+            <li><span>03</span><strong>MACE 预测</strong><small>预测原子级能量与结构</small></li>
+            <li><span>04</span><strong>梯度优化</strong><small>迭代推荐合金组分</small></li>
+          </ul>
+          <p class="panel-footnote">资料所述系统还支持中英文自然语言输入；参数不完整时可主动澄清，最多进行 3 轮对话。</p>
+          <div class="ai-demo">
+            <span class="micro-tag">CONCEPTUAL RUN</span>
+            <strong id="ai-demo-status">等待一次创制推演</strong>
+            <div class="run-meter"><i id="run-meter-fill"></i></div>
+            <button type="button" id="run-demo">开始推演 <span>→</span></button>
+            <small>概念演示，不执行真实材料计算。</small>
+          </div>
+        </div>
+        <div class="model-map" aria-label="PDF 中的材料智能创制逻辑">
+          <div class="model-map__intro">
+            <span class="micro-tag">PDF LOGIC / MATERIAL AI</span>
+            <h3>从基础模型，到材料智能体，<br />再到可验证的案例。</h3>
+            <p>把文档中的技术名词放回一条清晰路径：先理解“能做什么”，再看“怎样完成”，最后用 S1-MatAgent 案例看见结果。</p>
+          </div>
+          <div class="system-stats" aria-label="ScienceOne 材料智能创制系统规模">
+            <article><strong>100+</strong><span>材料研发工具</span></article>
+            <article><strong>65B</strong><span>理论引导 Tokens</span></article>
+            <article><strong>50 万+</strong><span>材料科学数据</span></article>
+          </div>
+          <div class="model-map__cards" role="tablist" aria-label="材料智能创制阶段">
+            <button class="model-card is-active" type="button" data-model="panshi" role="tab" aria-selected="true">
+              <span>01 / 基础模型</span><strong>磐石·祝融</strong><small>发现知识，提出设计方向</small>
+            </button>
+            <button class="model-card" type="button" data-model="matmind" role="tab" aria-selected="false">
+              <span>02 / 材料智能体</span><strong>MatMind Agent</strong><small>在未知空间生成与预测</small>
+            </button>
+            <button class="model-card" type="button" data-model="s1" role="tab" aria-selected="false">
+              <span>03 / 案例验证</span><strong>S1-MatAgent</strong><small>围绕目标性能筛选合金</small>
+            </button>
+          </div>
+          <div class="model-detail" aria-live="polite">
+            <span id="model-detail-kicker">01 / FOUNDATION MODEL</span>
+            <h4 id="model-detail-title">磐石·祝融</h4>
+            <p id="model-detail-text">面向材料研发的基础模型，帮助研究者从知识发现走向按需设计与精准制备。</p>
+            <div class="model-detail__facts"><strong id="model-detail-metric">按需设计</strong><span id="model-detail-capability">知识发现 → 精准制备</span></div>
+            <button type="button" id="model-detail-link" data-open-view="case" hidden>进入 S1 案例页 <span>→</span></button>
+          </div>
+        </div>
+        <div class="evidence-panel" aria-label="PDF 中的 AI 材料创制资料">
+          <div class="evidence-copy">
+            <span class="micro-tag">FROM THE ORIGINAL PDF</span>
+            <h3>从原始资料中看见<br />材料智能创制体系。</h3>
+            <p id="ai-evidence-caption">ScienceOne 基础上的材料研发工具、理论引导与数据体系。</p>
+            <div class="evidence-tabs" role="tablist" aria-label="AI 资料图片">
+              <button class="is-active" type="button" data-evidence-group="ai" data-structured="system" data-src="assets/pdf-evidence/scienceone-system.webp" data-caption="ScienceOne 基础上的材料研发工具、理论引导与数据体系。" role="tab" aria-selected="true">ScienceOne</button>
+              <button type="button" data-evidence-group="ai" data-structured="agent" data-src="assets/pdf-evidence/matmind-capabilities.webp" data-caption="MatMind 在未知空间探索、按需结构生成和性能预测方面的资料图。" role="tab" aria-selected="false">MatMind</button>
+            </div>
+          </div>
+          <div class="evidence-figure">
+            <div class="evidence-visual evidence-visual--structured" id="ai-evidence-image" role="img" aria-label="从 PDF 提取的 ScienceOne 材料智能研发体系信息">
+              <span class="evidence-scan" aria-hidden="true"></span>
+              <div class="evidence-structured is-animated" data-mode="system">
+                <div class="structured-node structured-node--wide"><span>L1 / 操作系统内核</span><strong>任务分解 · 多模态检索 · 代研解释</strong><small>把复杂科研问题拆成可执行的工具链</small></div>
+                <div class="structured-flow"><i></i><b>理论引导</b><i></i></div>
+                <div class="structured-node"><span>模型层</span><strong>ScienceOne</strong><small>65B Tokens 理论知识</small></div>
+                <div class="structured-node"><span>数据层</span><strong>50 万+</strong><small>材料科学数据与知识库</small></div>
+                <div class="structured-node structured-node--wide"><span>L2 / 材料智能创制系统</span><strong>智能计算 · 自主实验 · 闭环迭代</strong><small>从知识发现走向按需设计、精准制备</small></div>
+                <div class="agent-benchmark" hidden>
+                  <div class="benchmark-head"><span>资料案例：Agent 加速研发 · 66 天 → 约 7 天</span><strong>3500×</strong></div>
+                  <div class="benchmark-row"><span>传统流程</span><i><b></b></i><strong>≈66 天</strong></div>
+                  <div class="benchmark-row is-agent"><span>Agent 闭环</span><i><b></b></i><strong>≈7 天</strong></div>
+                  <small>数据提取 → 自主建模 → 主动实验，效率提升约 3500×</small>
+                </div>
+              </div>
+            </div>
+            <p>将原始资料处理为背景化研究图层 · 来源：《材料创制资料》PDF</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="research-ai-section shell" id="ai-research" aria-label="AI 如何参与材料创制">
+        <header class="phase2-heading">
+          <div>
+            <p class="eyebrow">SCIENTIFIC RESEARCH WORKFLOW / 05</p>
+            <h2>AI 如何参与<br />材料创制？</h2>
+          </div>
+          <p>AI 不是一个“答案按钮”，而是一条把知识、任务、候选与验证连接起来的研究工作流。</p>
+        </header>
+        <div class="workflow-frame">
+          <div class="workflow-frame__head">
+            <div><span class="micro-tag">RESEARCH LOOP</span><h3>从材料问题到下一轮设计</h3></div>
+            <span class="conceptual-label">CONCEPTUAL WORKFLOW</span>
+          </div>
+          <div class="workflow-track" id="ai-workflow" role="list" aria-label="材料智能创制工作流"></div>
+          <div class="workflow-readout" aria-live="polite">
+            <span id="ai-workflow-kicker">01 / KNOWLEDGE RETRIEVAL</span>
+            <strong id="ai-workflow-title">先找到可信的材料知识</strong>
+            <p id="ai-workflow-copy">从资料、知识库与已有数据中建立问题的上下文，再进入可执行的研究任务。</p>
+            <div class="mode-copy-columns"><div><span>小白模式</span><p id="ai-workflow-beginner">AI 先帮研究员把资料找齐，避免从零开始猜。</p></div><div><span>专家模式</span><p id="ai-workflow-expert">Input: knowledge sources · Output: grounded task context</p></div></div>
+          </div>
+        </div>
+        <div class="capability-ladder" id="ai-system-ladder" aria-label="ScienceOne、MatMind Agent、S1-MatAgent 的关系"></div>
+        <div class="evidence-metrics" id="ai-evidence-metrics" aria-label="PDF 数据口径"></div>
+        <div class="phase2-evidence-panel" id="ai-evidence-panel" hidden>
+          <button type="button" class="phase2-evidence-close" data-close-evidence="ai">关闭证据 <span>×</span></button>
+          <div><span class="micro-tag">EVIDENCE PANEL</span><h3 id="ai-evidence-title">数据证据</h3><p id="ai-evidence-detail"></p></div>
+        </div>
+        <div class="learning-context phase2-context" data-learning-context="ai" aria-label="AI 页面学习上下文">
+          <div class="learning-context__state"><span class="micro-tag">CURRENT STAGE</span><strong data-context-stage>AI 研究伙伴</strong></div>
+          <div class="learning-context__copy"><span>你已经理解</span><p data-context-understood>AI 可以帮助缩小搜索范围，但不会替代实验。</p></div>
+          <div class="learning-context__next"><span>推荐下一步</span><p data-context-next-copy>查看一次真实的高熵合金催化剂案例。</p><button type="button" data-context-next data-open-view="case">进入真实案例 <span>→</span></button></div>
+        </div>
+      </section>
+      </div>
+
+      <div class="app-view" id="view-case" data-view="case" aria-hidden="true">
+      <section class="case-section shell" id="case">
+        <div class="case-title">
+          <p class="eyebrow">CASE STUDY / 06</p>
+          <h2>用 AI 寻找<br />更高效的催化剂。</h2>
+        </div>
+        <div class="case-object">
+          <div class="alloy-cluster" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <span class="element el-ni">E₁</span><span class="element el-fe">E₂</span><span class="element el-co">E₃</span><span class="element el-mo">E₄</span><span class="element el-w">E₅</span>
+          <div class="case-signature"><span>资料中的元素设计特征</span><strong>Ni–(Fe/Co)–Mo–(Ru/Pd/Rh/Ir/Pt)</strong><small>以 Ni 为主骨架，Mo 与第 Ⅷ 族过渡元素协同</small></div>
+        </div>
+        <div class="case-notes">
+          <div><span>研究对象</span><strong>高熵合金催化剂</strong></div>
+          <div><span>应用场景</span><strong>碱性析氢反应</strong></div>
+          <div><span>当前边界</span><strong>五元合金设计</strong></div>
+        </div>
+        <div class="case-facts">
+          <article><span>示例输入</span><strong>元素候选池：8</strong><small>最大初始推荐：5</small></article>
+          <article><span>系统输出</span><strong>17 个初始组合</strong><small>资料结果页所示</small></article>
+          <article><span>优化结果</span><strong>11 个候选配方</strong><small>Ni₄Co₂Mo₃Ru₃Ir₄ · -23.04</small></article>
+          <article><span>项目结果</span><strong>性能提升 27.7%</strong><small>资料所述的优化结果</small></article>
+        </div>
+        <p class="case-description">S1-MatAgent 是面向材料科研人员、由规划器驱动的多智能体系统。它可支持高通量组合筛选、材料性能预测及优化；平台在此以科普方式展示其研发思路。</p>
+        <div class="case-control" aria-label="案例条件概念演示">
+          <div><span class="micro-tag">CONCEPTUAL PARAMETERS</span><strong>元素候选池 <output id="pool-output">8</output></strong></div>
+          <input id="pool-range" type="range" min="5" max="12" value="8" aria-label="元素候选池大小" />
+          <p id="pool-copy">候选池越大，可能组合越多；示例设置为 8。</p>
+          <div class="combination-readout"><span>理论五元组合数</span><strong id="combination-output">56</strong><small>仅演示元素组合规模，不等于实际推荐数量</small></div>
+          <button type="button" id="case-run">查看推演说明 <span>→</span></button>
+          <small id="case-status">这是对资料示例的交互化解释，不产生真实配方。</small>
+        </div>
+        <button class="text-link evidence-toggle" id="case-evidence-toggle" type="button" aria-expanded="false">打开原文证据 <span>↗</span></button>
+        <a class="text-link case-sources-link" href="#sources" data-view-link="sources">查看案例资料 <span>→</span></a>
+        <div class="case-evidence">
+          <button class="case-evidence-close" id="case-evidence-close" type="button">关闭证据层 <span>×</span></button>
+          <div class="case-evidence__head"><span class="micro-tag">PROJECT EVIDENCE</span><strong id="case-evidence-caption">S1-MatAgent 输出中的候选汇总与结果展示。</strong></div>
+          <div class="evidence-tabs" role="tablist" aria-label="案例资料图片">
+            <button class="is-active" type="button" data-evidence-group="case" data-src="assets/pdf-evidence/s1-results.webp" data-caption="S1-MatAgent 输出中的候选汇总与结果展示。" role="tab" aria-selected="true">结果页</button>
+            <button type="button" data-evidence-group="case" data-src="assets/pdf-evidence/s1-summary.webp" data-caption="资料中的设计结果与后续研究方向总结。" role="tab" aria-selected="false">结论页</button>
+          </div>
+          <div class="case-evidence__figure">
+            <div class="evidence-visual evidence-visual--case" id="case-evidence-image" role="img" aria-label="PDF 中的 S1-MatAgent 结果截图" style="--evidence-image:url('assets/pdf-evidence/s1-results.webp')">
+              <span class="evidence-scan" aria-hidden="true"></span>
+              <div class="case-result-strip"><span>17 INITIAL</span><span>11 OPTIMIZED</span><span>BEST -23.04</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study-v2 shell" id="case-study-v2" aria-label="S1-MatAgent 高熵合金析氢催化剂案例">
+        <header class="phase2-heading case-study-v2__heading">
+          <div>
+            <p class="eyebrow">CASE STUDY / S1-MATAGENT</p>
+            <h2>AI 如何设计一种催化剂？</h2>
+            <p class="phase2-subtitle">以 S1-MatAgent 的高熵合金析氢催化剂设计为例</p>
+          </div>
+          <p>沿着一次科研任务逐步推进：先提出问题，再区分模型建议、计算结果与实验验证。</p>
+        </header>
+        <nav class="case-stage-nav" id="case-stage-nav" aria-label="案例阶段"></nav>
+        <div class="case-stage-grid">
+          <article class="case-stage-copy">
+            <span class="micro-tag" id="case-stage-kicker">01 / RESEARCH QUESTION</span>
+            <h3 id="case-stage-title">我们想设计什么？</h3>
+            <p id="case-stage-beginner">碱性环境中的析氢反应需要催化剂帮助反应更顺利地发生。</p>
+            <div class="case-expert-layer" id="case-stage-expert">Definition · HER（析氢反应） · alkaline environment · high-entropy alloy</div>
+            <div class="case-stage-meta"><span id="case-stage-output-label">当前问题</span><strong id="case-stage-output">高活性高熵合金催化剂</strong></div>
+            <span class="conceptual-label" id="case-stage-status">FACT / PDF 描述</span>
+          </article>
+          <div class="case-stage-visual" id="case-stage-visual">
+            <div class="case-particle-field" id="case-particle-field" aria-hidden="true"></div>
+            <div class="case-visual-center"><span id="case-visual-symbol">H₂</span><small id="case-visual-label">Research Question</small></div>
+            <div class="case-visual-annotation" id="case-visual-annotation">先定义需要解决的材料问题</div>
+          </div>
+        </div>
+        <section class="case-candidate-panel">
+          <div class="case-panel-head"><div><span class="micro-tag">CANDIDATE SPACE</span><h3>候选空间如何被逐步缩小？</h3></div><span class="conceptual-label">CONCEPTUAL VISUALIZATION</span></div>
+          <div class="case-candidate-visual" id="case-candidate-visual"><div class="case-candidate-cloud" id="case-candidate-cloud"></div><div class="case-candidate-readout"><span id="case-candidate-label">大量候选</span><strong id="case-candidate-count">资料未给出总空间</strong><small id="case-candidate-note">先展开可能的组合，再进入筛选。</small></div></div>
+          <div class="case-candidate-controls" id="case-candidate-controls" role="tablist" aria-label="候选筛选阶段"></div>
+        </section>
+        <section class="validation-panel">
+          <div class="case-panel-head"><div><span class="micro-tag">PREDICTION VS VALIDATION</span><h3>模型建议不等于实验事实</h3></div></div>
+          <div class="validation-columns"><article><span class="evidence-tag evidence-tag--model">MODEL PREDICTION</span><h4>AI / 计算先提出方向</h4><p>模型可以帮助排序候选、预测趋势或给出优化方向。</p></article><div class="validation-arrow">→</div><article><span class="evidence-tag evidence-tag--experiment">EXPERIMENTAL VALIDATION</span><h4>制备与实验再确认</h4><p>是否真正有效，需要材料制备、表征与实验验证。</p></article></div>
+        </section>
+        <div class="case-evidence-metrics" id="case-evidence-metrics" aria-label="S1-MatAgent 案例指标"></div>
+        <div class="phase2-evidence-panel" id="case-evidence-panel" hidden><button type="button" class="phase2-evidence-close" data-close-evidence="case">关闭证据 <span>×</span></button><div><span class="micro-tag">EVIDENCE PANEL</span><h3 id="case-evidence-title">案例证据</h3><p id="case-evidence-detail"></p></div></div>
+        <div class="learning-context phase2-context" data-learning-context="case" aria-label="案例页面学习上下文"><div class="learning-context__state"><span class="micro-tag">CURRENT STAGE</span><strong data-context-stage>真实案例</strong></div><div class="learning-context__copy"><span>你已经理解</span><p data-context-understood>预测、计算与实验需要组成闭环。</p></div><div class="learning-context__next"><span>推荐下一步</span><p data-context-next-copy>回到原始资料，继续核对证据。</p><button type="button" data-context-next data-open-view="sources">查看资料索引 <span>→</span></button></div></div>
+      </section>
+      </div>
+
+      <div class="app-view" id="view-sources" data-view="sources" aria-hidden="true">
+      <section class="sources-section shell" id="sources">
+        <p class="eyebrow">SOURCE INDEX / 07</p>
+        <div><h2>科学的价值，<br />也来自它可被追溯。</h2><p>本平台中的案例内容基于提供的材料创制资料整理。所有模型预测、项目结果和实验结论将以不同标签清楚标记。</p></div>
+        <div class="source-cards">
+          <a href="https://www.cas.cn/cm/202604/t20260429_5108384.shtml" target="_blank" rel="noreferrer"><span>01 / 大模型</span><strong>磐石·祝融</strong><small>按需设计、精准制备的材料研发模式</small><b>打开原文 ↗</b></a>
+          <a href="https://www.matterai.cn/agent/" target="_blank" rel="noreferrer"><span>02 / 智能创制</span><strong>MatMind Agent</strong><small>资料中呈现的材料智能创制能力</small><b>打开原文 ↗</b></a>
+          <a href="https://github.com/ScienceOne-AI/S1-MatAgent" target="_blank" rel="noreferrer"><span>03 / 开源项目</span><strong>S1-MatAgent</strong><small>高熵合金催化剂设计智能体</small><b>查看 GitHub ↗</b></a>
+          <a href="https://arxiv.org/abs/2509.14542" target="_blank" rel="noreferrer"><span>04 / 论文</span><strong>S1-MatAgent arXiv</strong><small>用于进一步核对研究方法与结果</small><b>阅读论文 ↗</b></a>
+        </div>
+      </section>
+      </div>
+
+      <div id="workbench-root" data-expert-surface="scientific-workbench" hidden aria-hidden="true"></div>
+    </main>
+
+    <div class="term-popover" id="term-popover" role="dialog" aria-modal="false" aria-labelledby="term-name" hidden>
+      <div class="term-popover__head"><span class="micro-tag">QUICK GLOSSARY</span><button type="button" id="term-close" aria-label="关闭术语解释">×</button></div>
+      <strong id="term-name">成分</strong>
+      <p id="term-definition">材料由哪些元素或分子构成。</p>
+    </div>
+
+    <footer class="site-footer shell"><span>材料创制 / MATERIAL CREATION</span><span>互动材料科学学习平台</span><span>2026</span></footer>
+    <script src="app.js"></script>
+    <script src="final.js"></script>
+  </body>
+</html>
